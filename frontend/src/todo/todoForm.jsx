@@ -24,19 +24,19 @@ export default props => {
         /> 
       </Grid>
 
-      <Grid className='12 3 2'>
+      <Grid className='3 2'>
         <IconButton 
         style='primary' 
         icon='plus'
         onClick={props.handleAdicionar}
         />
         <IconButton 
-        styker='info' 
+        style='info' 
         icon='search'
         onClick={props.handleSearch}
         />
         <IconButton 
-        style='default' 
+        style='light' 
         icon='close'
         onClick={props.handleClear}
         />
