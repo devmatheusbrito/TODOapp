@@ -22,3 +22,8 @@
 .form-control {
   width: 100%;
 }
+
+.buttonSize {
+  width: 10px;
+  height: 10px;
+}
