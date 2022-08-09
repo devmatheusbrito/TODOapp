@@ -2,25 +2,45 @@ import React from "react";
 import Grid from '../template/grid'
 import IconButton from "../template/iconButton";
 
-export default props => (
-  <div role='form' className='todoForm'>
-    <Grid className='12 9 10'>
-      <input 
-      id='description' 
-      className='form-control' 
-      placeholder='Adicione uma tarefa'
-      value={props.description}
-      onChange={props.handleChange}
-      /> 
-    </Grid>
+export default props => {
+  const keyHandler = (e) => {
+    if(e.key ==='Enter'){
+      e.shiftKey ? props.handleSearch() : props.handleAdicionar()
+    }else if(e.key === 'Escape'){
+      props.handleClear()
+    }
+  }
 
-    <Grid className='12 3 2'>
-      <IconButton 
-      style='primary' 
-      icon='plus'
-      onClick={props.handleAdicionar}
-      />
-    </Grid>
+  return (
+    <div role='form' className='todoForm'>
+      <Grid className='12 9 10'>
+        <input 
+        id='description' 
+        className='form-control' 
+        placeholder='Adicione uma tarefa'
+        value={props.description}
+        onChange={props.handleChange}
+        onKeyUp={keyHandler}
+        /> 
+      </Grid>
 
-  </div>
-)
+      <Grid className='12 3 2'>
+        <IconButton 
+        style='primary' 
+        icon='plus'
+        onClick={props.handleAdicionar}
+        />
+        <IconButton 
+        styker='info' 
+        icon='search'
+        onClick={props.handleSearch}
+        />
+        <IconButton 
+        style='default' 
+        icon='close'
+        onClick={props.handleClear}
+        />
+      </Grid>
+    </div>
+  )
+}
